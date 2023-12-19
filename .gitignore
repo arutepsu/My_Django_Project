@@ -1,4 +1,5 @@
 # Игнорировать файлы и папки, созданные во время разработки
+posts
 
 # Виртуальное окружение Python
 venv/
@@ -52,3 +53,13 @@ pip-cache/
 *.bak
 
 static
+
+products/0ab0e3ffd51a65a6de4bdf2dba196cfa.jpg
+
+products/0ab0e3ffd51a65a6de4bdf2dba196cfa_XVhQdOY.jpg
+
+products/0ab0e3ffd51a65a6de4bdf2dba196cfa_iUeMkxE.jpg
+
+products/Screenshot_2023-07-04_232403.png
+
+

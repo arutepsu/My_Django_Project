@@ -3,6 +3,8 @@ import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from product.models import Product
+
 
 def hello_view(request):
     if request.method == 'GET':
@@ -19,6 +21,25 @@ def bye_view(request):
     if request.method == 'GET':
         return HttpResponse("Bye User!")
 
+
 def l_view(request):
     if request.method == 'GET':
         return render(request, 'index.html')
+
+
+def main_view(request):
+    if request.method == 'GET':
+        return render(request, 'index.html')
+
+
+def product_view(request):
+    if request.method == 'GET':
+        products = Product.objects.all()
+        context = {
+            'products': products,
+        }
+        return render(
+            request,
+            'products/products.html',
+            context=context
+        )
