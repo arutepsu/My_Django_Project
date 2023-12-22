@@ -55,6 +55,6 @@ def categories_view(request):
 
         return render(
             request,
-            'products/products.html',
+            'categories/list.html',
             context=context
         )
