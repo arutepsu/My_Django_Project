@@ -25,6 +25,7 @@ urlpatterns = [
     path('goodbye/', bye_view),
     path('l', l_view),
     path('', main_view),
-    path('products/', product_view)
+    path('products/', product_view),
+    path('categories/', categories_view)
 
 ]

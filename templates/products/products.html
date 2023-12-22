@@ -8,6 +8,13 @@
         <h5 class="card-title">{{ product.title }} {{ product.rate }}</h5>
         <p class="card-text">{{ product.text }}</p>
         <p class="card-text">{{ product.created_at }}</p>
+        {% for category in product.categories.all %}
+          <a class="btn btn-primary" href="#">
+            <p>
+              #{{ category.name }}
+            </p>
+          </a>
+        {% endfor %}
         <a href="#" class="btn btn-primary">View detail</a>
       </div>
     </div>
