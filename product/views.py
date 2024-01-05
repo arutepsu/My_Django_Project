@@ -58,7 +58,7 @@ def product_detail_view(request, product_id):
 
         return render(
             request,
-            'product/detail.html',
+            'products/detail.html',
             context=context
         )
 
