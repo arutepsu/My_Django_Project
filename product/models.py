@@ -35,14 +35,26 @@ class Category(BaseModel):
         return f"{self.name}"
 
     class Meta:
-        db_table = 'Categories'
+        db_table = 'categories'
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
 
 
+class Review(BaseModel):
+    text = models.CharField(max_length=255, verbose_name="Some Review")
+
+    def __str__(self) -> str:
+        return f"{self.text}"
+
+    class Meta:
+        db_table = 'reviews'
+        verbose_name = 'Review'
+        verbose_name_plural = 'Reviews'
+
+
 class Product(BaseModel):
     image = models.ImageField(
-        upload_to='posts',
+        upload_to='products',
         null=True,
         blank=False,
         verbose_name="Фото")
@@ -53,13 +65,18 @@ class Product(BaseModel):
     hashtags = models.ManyToManyField(
         Category,
         verbose_name="Categories",
-        related_name="Products"
+        related_name="products"
+    )
+    reviews = models.ManyToManyField(
+        Review,
+        verbose_name="Reviews",
+        related_name="products"
     )
 
     def __str__(self) -> str:
         return f"{self.title} {self.rate}"
 
     class Meta:
-        db_table = 'Products'
+        db_table = 'products'
         verbose_name = 'Product'
         verbose_name_plural = 'Products'

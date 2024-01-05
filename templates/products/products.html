@@ -11,11 +11,11 @@
         {% for category in product.categories.all %}
           <a class="btn btn-primary" href="#">
             <p>
-              #{{ category.name }}
+              {{ category.name }}
             </p>
           </a>
         {% endfor %}
-        <a href="#" class="btn btn-primary">View detail</a>
+        <a href="/products/{{ product.id}}" class="btn btn-primary">View detail</a>
       </div>
     </div>
   {% endfor %}

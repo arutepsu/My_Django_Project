@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  {% for review in reviews %}
+    <a href="">
+        <p>
+            {{ review.text }}
+        </p>
+    </a>
+    <br>
+  {% endfor %}
+{% endblock %}

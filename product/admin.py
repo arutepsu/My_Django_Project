@@ -15,3 +15,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Category)
+admin.site.register(Review)

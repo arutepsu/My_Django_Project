@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import path
 from product.views import *
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello_view),
@@ -26,6 +29,10 @@ urlpatterns = [
     path('l', l_view),
     path('', main_view),
     path('products/', product_view),
-    path('categories/', categories_view)
-
+    path('products/<int:product_id>', product_detail_view),
+    path('categories/', categories_view),
+    path('reviews/', review_view),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
