@@ -76,16 +76,3 @@ def categories_view(request):
             'categories/list.html',
             context=context
         )
-
-
-def review_view(request):
-    if request.method == 'GET':
-        reviews = Review.objects.all()
-
-        context = {
-            'reviews': reviews,
-        }
-
-        return render(request,
-                      'reviews/review_list.html',
-                      context=context)
