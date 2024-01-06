@@ -23,7 +23,7 @@ class Category(BaseModel):
 class Review(BaseModel):
     # text = models.CharField(max_length=255, verbose_name="Some Review")
     product = models.ForeignKey(
-        "product.Review",  # Поле для связи с другой моделью
+        "product.Product",  # Поле для связи с другой моделью
         on_delete=models.CASCADE,
         # Политика удаления записи в связанной модели (CASCADE - удалить все записи, которые связаны с этой записью)
         verbose_name="Review",  # Название поля в форме (админка, форма регистрации, форма авторизации)

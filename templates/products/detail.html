@@ -13,7 +13,7 @@
 
 <p>{{ product.created_at }}</p>
 
-{% for category in product.categories.all %}
+{% for category in products.categories.all %}
     <a class="btn btn-primary" href="#">
         <p>
             {{ category.name }}
@@ -21,7 +21,7 @@
     </a>
 {% endfor %}
 
-{% for review in product.reviews.all %}
+{% for review in products.reviews.all %}
         <p>
             {{ review.text }}
         </p>
