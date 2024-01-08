@@ -1,9 +1,10 @@
 import datetime
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from product.models import *
+from product.forms import ProductForm, CategoryForm, ReviewForm
 
 
 def hello_view(request):
@@ -76,3 +77,60 @@ def categories_view(request):
             'categories/list.html',
             context=context
         )
+
+
+def product_create_view(requests):
+    if requests.method == 'GET':
+        context = {
+            'form': ProductForm
+        }
+        return render(requests, 'products/create_product.html', context=context)
+    if requests.method == 'PRODUCT':
+        form = ProductForm(requests.PRODUCT, requests.FILES)
+
+        if form.is_valid():
+            Product.objects.create(**form.cleaned_data)
+
+            return redirect('/products/')
+        context = {
+            'form': form,
+        }
+        return render(requests, 'products/create_product.html', context=context)
+
+
+def category_create_view(requests):
+    if requests.method == 'GET':
+        context = {
+            'form': CategoryForm
+        }
+        return render(requests, 'categories/create_category.html', context=context)
+    if requests.method == 'CATEGORY':
+        form = CategoryForm(requests.CATEGORY, requests.FILES)
+
+        if form.is_valid():
+            Product.objects.create(**form.cleaned_data)
+
+            return redirect('/categories/')
+        form.save()
+        context = {
+            'form': form,
+        }
+        return render(requests, 'categories/create_category.html', context=context)
+
+def review_create_view(requests):
+    if requests.method == 'GET':
+        context = {
+            'form': ReviewForm
+        }
+        return render(requests, 'products/detail.html', context=context)
+    if requests.method == 'REVIEW':
+        form = CategoryForm(requests.CATEGORY, requests.FILES)
+
+        if form.is_valid():
+            Product.objects.create(**form.cleaned_data)
+
+            return redirect('/products/')
+        context = {
+            'form': form,
+        }
+        return render(requests, 'products/detail.html', context=context)
